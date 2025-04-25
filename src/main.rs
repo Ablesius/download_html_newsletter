@@ -3,6 +3,11 @@ use html_link_to_text::Link;
 fn main() {
     // 1. read text from command line!
     let args: Vec<String> = std::env::args().collect();
+
+    // args must not be empty!
+    if args.len() != 2 {
+        panic!("You have to provide a link to the program!");
+    }
     // 2. strip down to url - for the moment assume we'll just paste the url to the tool, nothing
     //    more!
     let link = Link::new(&args[1]);
